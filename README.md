@@ -23,3 +23,12 @@ Ao criar a conexão para acesso à instância do PostgreSQL, leve em conta as se
 - Em "Host name/address", informar o nome do container que corresponde à instância do PostgreSQL (`postgres`).
 - Em "Port", definir o valor `5432` (porta default de acesso ao container e disponível a partir da rede `postgres_network`). Não informar a porta em que o PostgreSQL foi mapeado no host.
 - No atributo "Username", deverá ser informado o usuário default do PostgreSQL (`postgres`), bem como a senha correspondente em "Password" (senha que você definiu no arquivo de enviroment). 
+
+
+#### Referências:
+
+[PostgreSQL + pgAdmin 4 + Docker Compose: montando rapidamente um ambiente para uso](https://renatogroffe.medium.com/postgresql-pgadmin-4-docker-compose-montando-rapidamente-um-ambiente-para-uso-55a2ab230b89)
+
+[PostgreSQL - Docker Hub](https://hub.docker.com/_/postgres/)
+
+[pgAdmin 4 - Docker Hub](https://hub.docker.com/r/dpage/pgadmin4/)
