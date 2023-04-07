@@ -3,12 +3,13 @@ version: '3'
 services:
   postgres:
     user: "${UID}:${GID}"
+    restart: always
     image: postgres:latest
     container_name: postgresql
     environment:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     ports:
-      - "15432:5432"
+      - "5432:5432"
     volumes:
       - ./docker-persist/db/pgsql:/var/lib/postgresql/data 
     networks:
