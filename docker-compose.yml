@@ -13,7 +13,7 @@ services:
     volumes:
       - ./docker-persist/db/pgsql:/var/lib/postgresql/data 
     networks:
-      - postgres_network
+      - pgsql_network
       
   pgadmin:
     image: dpage/pgadmin4:latest
@@ -26,8 +26,8 @@ services:
     depends_on:
       - postgres
     networks:
-      - postgres_network
+      - pgsql_network
 
-networks: 
-  postgres_network:
+networks:
+  pgsql_network:
     driver: bridge
