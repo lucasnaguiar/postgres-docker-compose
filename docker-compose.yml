@@ -1,33 +1,17 @@
-version: '3'
-
 services:
   postgres:
-    user: "${UID}:${GID}"
     restart: always
-    image: postgres:latest
+    image: postgres:18
     container_name: postgresql
     environment:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     ports:
       - "5432:5432"
     volumes:
-      - ./docker-persist/db/pgsql:/var/lib/postgresql/data 
+      - ./docker-persist/db/pgsql:/var/lib/postgresql 
     networks:
-      - pgsql_network
-      
-  pgadmin:
-    image: dpage/pgadmin4:latest
-    container_name: pgadmin4
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
-      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
-    ports:
-      - "7500:80"
-    depends_on:
-      - postgres
-    networks:
-      - pgsql_network
+      - traefik-net
 
 networks:
-  pgsql_network:
-    driver: bridge
+  traefik-net:
+    external: true
